@@ -34,9 +34,6 @@
                                 <rect key="frame" x="181" y="191" width="13.333333333333343" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" image="Arrow Up"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="fqU-sJ-M6F" appends="YES" id="v3m-dB-bQk"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyL-Jc-ecB">
                                 <rect key="frame" x="107.33333333333333" y="225" width="160.33333333333337" height="26"/>
@@ -99,6 +96,9 @@
                                     <constraint firstAttribute="width" secondItem="Fsr-Vb-Np3" secondAttribute="height" multiplier="1:1" id="Te2-tS-coV"/>
                                     <constraint firstAttribute="bottom" secondItem="XF0-Xx-QNa" secondAttribute="bottom" constant="5" id="vW9-Cd-405"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="fqU-sJ-M6F" appends="YES" id="KnL-Qf-xee"/>
+                                </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="MZf-hd-95W">
                                 <rect key="frame" x="51.666666666666657" y="688" width="272" height="80"/>
@@ -165,7 +165,7 @@
                         <outlet property="buttonImport2" destination="TsM-a0-vfR" id="RJx-3R-kzw"/>
                         <outlet property="buttonImport3" destination="HEL-V5-byG" id="JM7-ww-fkh"/>
                         <outlet property="buttonImport4" destination="X4a-ha-rMB" id="Ygz-vy-psr"/>
-                        <outlet property="swipeView" destination="cMc-Hb-b8e" id="9Vj-ZY-odC"/>
+                        <outlet property="swipeSquare" destination="Fsr-Vb-Np3" id="4rt-F5-Rxq"/>
                         <outlet property="viewLayout1" destination="bNA-7O-Uon" id="hBn-Sc-mMl"/>
                         <outlet property="viewLayout2" destination="Ubj-nX-ZVP" id="m4Q-aw-pvu"/>
                         <outlet property="viewLayout3" destination="aYI-8f-rlM" id="190-uz-EM6"/>
@@ -174,7 +174,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="up" id="fqU-sJ-M6F">
                     <connections>
-                        <action selector="swipeActionV2:" destination="BYZ-38-t0r" id="HWn-ll-iFP"/>
+                        <action selector="swipeSquareAction:" destination="BYZ-38-t0r" id="zwU-Z9-x1R"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>

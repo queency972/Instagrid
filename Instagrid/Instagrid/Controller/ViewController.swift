@@ -11,7 +11,8 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var swipeView: UIButton!
+
+    @IBOutlet weak var swipeSquare: UIView!
     @IBOutlet weak var buttonImport1: UIButton!
     @IBOutlet weak var buttonImport2: UIButton!
     @IBOutlet weak var buttonImport3: UIButton!
@@ -19,7 +20,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var viewLayout1: UIButton!
     @IBOutlet weak var viewLayout2: UIButton!
     @IBOutlet weak var viewLayout3: UIButton!
-
 
     @IBAction func layout1(_ sender: Any) {
         layoutChoice(choice: "Layout1")
@@ -33,45 +33,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         layoutChoice(choice: "Layout3")
     }
 
-    func layoutChoice(choice: String) {
-    switch choice {
-    case "Layout1":
-        buttonImport1.isHidden = false
-        buttonImport2.isHidden = true
-        buttonImport3.isHidden = false
-        buttonImport4.isHidden = false
-        viewLayout1.setImage(UIImage(named: "Selected"), for: .normal)
-        viewLayout2.setImage(UIImage(named: ""), for: .normal)
-        viewLayout3.setImage(UIImage(named: ""), for: .normal)
-    case "Layout2":
-        buttonImport1.isHidden = false
-        buttonImport2.isHidden = false
-        buttonImport3.isHidden = false
-        buttonImport4.isHidden = true
-        viewLayout1.setImage(UIImage(named: ""), for: .normal)
-        viewLayout2.setImage(UIImage(named: "Selected"), for: .normal)
-        viewLayout3.setImage(UIImage(named: ""), for: .normal)
-    case "Layout3":
-        buttonImport1.isHidden = false
-        buttonImport2.isHidden = false
-        buttonImport3.isHidden = false
-        buttonImport4.isHidden = false
-        viewLayout1.setImage(UIImage(named: ""), for: .normal)
-        viewLayout2.setImage(UIImage(named: ""), for: .normal)
-        viewLayout3.setImage(UIImage(named: "Selected"), for: .normal)
-    default:
-        break
-        }
-    }
-
     @IBAction func ButtonImportPhoto1(_ sender: Any) {
         addNewPicture()
     }
 
-    @IBAction func swipeActionV2(_ sender: Any) {
-        self.swipeView.transform = CGAffineTransform(translationX: 0, y: -200)
+    @IBAction func swipeSquareAction(_ sender: Any) {
+        self.swipeSquare.transform = CGAffineTransform(translationX: 0, y: -200)
         self.sharePhoto()
-        self.swipeView.transform = .identity
+        //self.swipeSquare.transform = .identity
     }
 
     func sharePhoto() {
@@ -96,6 +65,37 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         self.dismiss(animated: true, completion: nil)
     }
+
+    func layoutChoice(choice: String) {
+     switch choice {
+     case "Layout1":
+         buttonImport1.isHidden = false
+         buttonImport2.isHidden = true
+         buttonImport3.isHidden = false
+         buttonImport4.isHidden = false
+         viewLayout1.setImage(UIImage(named: "Selected"), for: .normal)
+         viewLayout2.setImage(UIImage(named: ""), for: .normal)
+         viewLayout3.setImage(UIImage(named: ""), for: .normal)
+     case "Layout2":
+         buttonImport1.isHidden = false
+         buttonImport2.isHidden = false
+         buttonImport3.isHidden = false
+         buttonImport4.isHidden = true
+         viewLayout1.setImage(UIImage(named: ""), for: .normal)
+         viewLayout2.setImage(UIImage(named: "Selected"), for: .normal)
+         viewLayout3.setImage(UIImage(named: ""), for: .normal)
+     case "Layout3":
+         buttonImport1.isHidden = false
+         buttonImport2.isHidden = false
+         buttonImport3.isHidden = false
+         buttonImport4.isHidden = false
+         viewLayout1.setImage(UIImage(named: ""), for: .normal)
+         viewLayout2.setImage(UIImage(named: ""), for: .normal)
+         viewLayout3.setImage(UIImage(named: "Selected"), for: .normal)
+     default:
+         break
+         }
+     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
