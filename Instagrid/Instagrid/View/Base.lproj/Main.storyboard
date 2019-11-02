@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
@@ -21,11 +21,34 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slK-Hl-8e1">
+                                <rect key="frame" x="128.33333333333334" y="64" width="118.66666666666666" height="39"/>
+                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMc-Hb-b8e" userLabel="Swipe Button">
+                                <rect key="frame" x="181" y="191" width="13.333333333333343" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" image="Arrow Up"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="fqU-sJ-M6F" appends="YES" id="v3m-dB-bQk"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyL-Jc-ecB">
+                                <rect key="frame" x="107.33333333333333" y="225" width="160.33333333333337" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="0uh-ZB-MLI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fsr-Vb-Np3" userLabel="Squares">
-                                <rect key="frame" x="66" y="307" width="282" height="282"/>
+                                <rect key="frame" x="46.666666666666657" y="265" width="282" height="282"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XF0-Xx-QNa">
                                         <rect key="frame" x="5" y="5" width="272" height="272"/>
@@ -37,6 +60,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="131" height="131"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="ButtonImportPhoto1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SK1-iu-cFr"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TsM-a0-vfR" userLabel="Button 2">
                                                         <rect key="frame" x="141" y="0.0" width="131" height="131"/>
@@ -52,9 +78,6 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="131" height="131"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" image="Plus"/>
-                                                        <connections>
-                                                            <action selector="buttonImport:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zqy-Aa-KSf"/>
-                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4a-ha-rMB">
                                                         <rect key="frame" x="141" y="0.0" width="131" height="131"/>
@@ -77,26 +100,10 @@
                                     <constraint firstAttribute="bottom" secondItem="XF0-Xx-QNa" secondAttribute="bottom" constant="5" id="vW9-Cd-405"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="yow-80-BlJ">
-                                <rect key="frame" x="201.5" y="242" width="11" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="11" id="BPD-rx-d5x"/>
-                                    <constraint firstAttribute="height" constant="15" id="SdG-7Y-RoJ"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyL-Jc-ecB">
-                                <rect key="frame" x="127" y="267" width="160.5" height="26"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="26" id="0uh-ZB-MLI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="MZf-hd-95W">
-                                <rect key="frame" x="71" y="772" width="272" height="80"/>
+                                <rect key="frame" x="51.666666666666657" y="688" width="272" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNA-7O-Uon" userLabel="Layout 1">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNA-7O-Uon" userLabel="Layout 1">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="Gbs-Me-0lD"/>
@@ -104,8 +111,11 @@
                                             <constraint firstAttribute="height" constant="80" id="LLx-8s-JE6"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="Layout 1"/>
+                                        <connections>
+                                            <action selector="layout1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x1k-2m-DyB"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubj-nX-ZVP" userLabel="Layout 2">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubj-nX-ZVP" userLabel="Layout 2">
                                         <rect key="frame" x="96" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="H1I-QT-sev"/>
@@ -113,6 +123,9 @@
                                             <constraint firstAttribute="width" secondItem="Ubj-nX-ZVP" secondAttribute="height" multiplier="1:1" id="cjy-V8-WVw"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="Layout 2"/>
+                                        <connections>
+                                            <action selector="layout2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HWn-ed-EQw"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYI-8f-rlM" userLabel="Layout 3">
                                         <rect key="frame" x="192" y="0.0" width="80" height="80"/>
@@ -120,51 +133,59 @@
                                             <constraint firstAttribute="height" constant="80" id="Zbt-uD-YGS"/>
                                             <constraint firstAttribute="width" secondItem="aYI-8f-rlM" secondAttribute="height" multiplier="1:1" id="wCs-Ef-3XA"/>
                                         </constraints>
-                                        <state key="normal" image="Selected" backgroundImage="Layout 3"/>
+                                        <state key="normal" backgroundImage="Layout 3"/>
+                                        <connections>
+                                            <action selector="layout3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lp9-4i-FBi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="97m-9g-ySm"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slK-Hl-8e1">
-                                <rect key="frame" x="148" y="64" width="118.5" height="39"/>
-                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.71904808282852173" green="0.8420836329460144" blue="0.89804929494857788" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="cMc-Hb-b8e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="59c-Yg-Ljt"/>
                             <constraint firstItem="Fsr-Vb-Np3" firstAttribute="top" secondItem="VyL-Jc-ecB" secondAttribute="bottom" constant="14" id="Ao8-IJ-KcJ"/>
                             <constraint firstItem="MZf-hd-95W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CVR-wj-FNu"/>
                             <constraint firstItem="VyL-Jc-ecB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KFD-W7-8TX"/>
+                            <constraint firstItem="VyL-Jc-ecB" firstAttribute="top" secondItem="cMc-Hb-b8e" secondAttribute="bottom" constant="12" id="P7y-Zf-aPe"/>
                             <constraint firstItem="Fsr-Vb-Np3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="R3D-eR-t0O"/>
                             <constraint firstItem="MZf-hd-95W" firstAttribute="width" secondItem="XF0-Xx-QNa" secondAttribute="width" id="Rs2-i4-gh4"/>
-                            <constraint firstItem="VyL-Jc-ecB" firstAttribute="centerX" secondItem="yow-80-BlJ" secondAttribute="centerX" id="asC-EE-1h3"/>
                             <constraint firstItem="slK-Hl-8e1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bkU-Ac-erp"/>
                             <constraint firstItem="slK-Hl-8e1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="fRQ-6O-aEg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MZf-hd-95W" secondAttribute="bottom" constant="10" id="gg5-J7-0co"/>
                             <constraint firstItem="Fsr-Vb-Np3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jIj-wb-oER"/>
-                            <constraint firstItem="VyL-Jc-ecB" firstAttribute="top" secondItem="yow-80-BlJ" secondAttribute="bottom" constant="10" id="jeN-md-FdR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="btn3" destination="HEL-V5-byG" id="PYT-Gp-Qlf"/>
+                        <outlet property="buttonImport1" destination="Mxo-Xj-dRV" id="Rcl-rE-kWc"/>
+                        <outlet property="buttonImport2" destination="TsM-a0-vfR" id="RJx-3R-kzw"/>
+                        <outlet property="buttonImport3" destination="HEL-V5-byG" id="JM7-ww-fkh"/>
+                        <outlet property="buttonImport4" destination="X4a-ha-rMB" id="Ygz-vy-psr"/>
+                        <outlet property="swipeView" destination="cMc-Hb-b8e" id="9Vj-ZY-odC"/>
+                        <outlet property="viewLayout1" destination="bNA-7O-Uon" id="hBn-Sc-mMl"/>
+                        <outlet property="viewLayout2" destination="Ubj-nX-ZVP" id="m4Q-aw-pvu"/>
+                        <outlet property="viewLayout3" destination="aYI-8f-rlM" id="190-uz-EM6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="fqU-sJ-M6F">
+                    <connections>
+                        <action selector="swipeActionV2:" destination="BYZ-38-t0r" id="HWn-ll-iFP"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1089.8550724637682" y="-210.26785714285714"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Arrow Up" width="4.5" height="3.5"/>
-        <image name="Layout 1" width="27" height="27"/>
-        <image name="Layout 2" width="27" height="27"/>
-        <image name="Layout 3" width="27" height="27"/>
+        <image name="Arrow Up" width="13.333333015441895" height="9.6666669845581055"/>
+        <image name="Layout 1" width="26.666666030883789" height="26.666666030883789"/>
+        <image name="Layout 2" width="26.666666030883789" height="26.666666030883789"/>
+        <image name="Layout 3" width="26.666666030883789" height="26.666666030883789"/>
         <image name="Plus" width="40" height="40"/>
-        <image name="Selected" width="27" height="27"/>
     </resources>
 </document>
