@@ -11,7 +11,6 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-
     @IBOutlet weak var swipeView: UIButton!
     @IBOutlet weak var buttonImport1: UIButton!
     @IBOutlet weak var buttonImport2: UIButton!
@@ -23,6 +22,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
 
     @IBAction func layout1(_ sender: Any) {
+        layoutChoice(choice: "Layout1")
+    }
+
+    @IBAction func layout2(_ sender: Any) {
+        layoutChoice(choice: "Layout2")
+    }
+
+    @IBAction func layout3(_ sender: Any) {
+        layoutChoice(choice: "Layout3")
+    }
+
+    func layoutChoice(choice: String) {
+    switch choice {
+    case "Layout1":
         buttonImport1.isHidden = false
         buttonImport2.isHidden = true
         buttonImport3.isHidden = false
@@ -30,9 +43,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         viewLayout1.setImage(UIImage(named: "Selected"), for: .normal)
         viewLayout2.setImage(UIImage(named: ""), for: .normal)
         viewLayout3.setImage(UIImage(named: ""), for: .normal)
-    }
-
-    @IBAction func layout2(_ sender: Any) {
+    case "Layout2":
         buttonImport1.isHidden = false
         buttonImport2.isHidden = false
         buttonImport3.isHidden = false
@@ -40,9 +51,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         viewLayout1.setImage(UIImage(named: ""), for: .normal)
         viewLayout2.setImage(UIImage(named: "Selected"), for: .normal)
         viewLayout3.setImage(UIImage(named: ""), for: .normal)
-    }
-
-    @IBAction func layout3(_ sender: Any) {
+    case "Layout3":
         buttonImport1.isHidden = false
         buttonImport2.isHidden = false
         buttonImport3.isHidden = false
@@ -50,6 +59,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         viewLayout1.setImage(UIImage(named: ""), for: .normal)
         viewLayout2.setImage(UIImage(named: ""), for: .normal)
         viewLayout3.setImage(UIImage(named: "Selected"), for: .normal)
+    default:
+        break
+        }
     }
 
     @IBAction func ButtonImportPhoto1(_ sender: Any) {
