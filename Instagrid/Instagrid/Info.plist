@@ -67,5 +67,7 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Use photos to add more details to your trips</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Add picture to your library</string>
 </dict>
 </plist>

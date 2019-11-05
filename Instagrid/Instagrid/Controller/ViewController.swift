@@ -20,31 +20,48 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var viewLayout1: UIButton!
     @IBOutlet weak var viewLayout2: UIButton!
     @IBOutlet weak var viewLayout3: UIButton!
+    var currentButton: UIButton?
 
-    @IBAction func layout1(_ sender: Any) {
-        layoutChoice(choice: "Layout1")
+    @IBAction func changeLayout(_ sender: UIButton) {
+        switch sender.tag {
+        case 1:
+            layoutChoice(choice: "Layout1")
+        case 2:
+            layoutChoice(choice: "Layout2")
+        case 3:
+            layoutChoice(choice: "Layout3")
+        default:
+            break
+        }
     }
 
-    @IBAction func layout2(_ sender: Any) {
-        layoutChoice(choice: "Layout2")
-    }
-
-    @IBAction func layout3(_ sender: Any) {
-        layoutChoice(choice: "Layout3")
-    }
-
-    @IBAction func ButtonImportPhoto1(_ sender: Any) {
+    @IBAction func ButtonImportPhoto1(_ sender: UIButton) {
+        currentButton = sender
         addNewPicture()
     }
 
-    @IBAction func swipeSquareAction(_ sender: Any) {
-        self.swipeSquare.transform = CGAffineTransform(translationX: 0, y: -200)
-        self.sharePhoto()
-        //self.swipeSquare.transform = .identity
+    @IBAction func swipeSquareActionV2(_ sender: UISwipeGestureRecognizer) {
+        let translationUP = CGAffineTransform(translationX: 0, y: -180)
+        UIView.animate(withDuration: 0.5) {
+            self.swipeSquare.transform = translationUP
+            self.swipeSquare.alpha = 0
+            self.sharePhoto()
+        }
     }
 
     func sharePhoto() {
-        let activityController =  UIActivityViewController(activityItems: [buttonImport1!], applicationActivities: nil)
+        let activityController =  UIActivityViewController(activityItems: [buttonImport1!.image(for: .normal)!], applicationActivities: nil)
+        activityController.completionWithItemsHandler = {
+            (activity, success, items, error) in
+            if (!success) {
+                self.swipeSquare.transform = .identity
+                self.swipeSquare.alpha = 1
+            }
+            else {
+                self.swipeSquare.transform = .identity
+                self.swipeSquare.alpha = 1
+            }
+        }
         present(activityController, animated: true, completion: nil)
     }
 
@@ -60,42 +77,44 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            buttonImport1.setImage(image, for: .normal)
+            if let buttonSelected = currentButton {
+                buttonSelected.setImage(image, for: .normal)
+            }
         }
         
         self.dismiss(animated: true, completion: nil)
     }
 
     func layoutChoice(choice: String) {
-     switch choice {
-     case "Layout1":
-         buttonImport1.isHidden = false
-         buttonImport2.isHidden = true
-         buttonImport3.isHidden = false
-         buttonImport4.isHidden = false
-         viewLayout1.setImage(UIImage(named: "Selected"), for: .normal)
-         viewLayout2.setImage(UIImage(named: ""), for: .normal)
-         viewLayout3.setImage(UIImage(named: ""), for: .normal)
-     case "Layout2":
-         buttonImport1.isHidden = false
-         buttonImport2.isHidden = false
-         buttonImport3.isHidden = false
-         buttonImport4.isHidden = true
-         viewLayout1.setImage(UIImage(named: ""), for: .normal)
-         viewLayout2.setImage(UIImage(named: "Selected"), for: .normal)
-         viewLayout3.setImage(UIImage(named: ""), for: .normal)
-     case "Layout3":
-         buttonImport1.isHidden = false
-         buttonImport2.isHidden = false
-         buttonImport3.isHidden = false
-         buttonImport4.isHidden = false
-         viewLayout1.setImage(UIImage(named: ""), for: .normal)
-         viewLayout2.setImage(UIImage(named: ""), for: .normal)
-         viewLayout3.setImage(UIImage(named: "Selected"), for: .normal)
-     default:
-         break
-         }
-     }
+        switch choice {
+        case "Layout1":
+            buttonImport1.isHidden = false
+            buttonImport2.isHidden = true
+            buttonImport3.isHidden = false
+            buttonImport4.isHidden = false
+            viewLayout1.setImage(UIImage(named: "Selected"), for: .normal)
+            viewLayout2.setImage(UIImage(named: ""), for: .normal)
+            viewLayout3.setImage(UIImage(named: ""), for: .normal)
+        case "Layout2":
+            buttonImport1.isHidden = false
+            buttonImport2.isHidden = false
+            buttonImport3.isHidden = false
+            buttonImport4.isHidden = true
+            viewLayout1.setImage(UIImage(named: ""), for: .normal)
+            viewLayout2.setImage(UIImage(named: "Selected"), for: .normal)
+            viewLayout3.setImage(UIImage(named: ""), for: .normal)
+        case "Layout3":
+            buttonImport1.isHidden = false
+            buttonImport2.isHidden = false
+            buttonImport3.isHidden = false
+            buttonImport4.isHidden = false
+            viewLayout1.setImage(UIImage(named: ""), for: .normal)
+            viewLayout2.setImage(UIImage(named: ""), for: .normal)
+            viewLayout3.setImage(UIImage(named: "Selected"), for: .normal)
+        default:
+            break
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

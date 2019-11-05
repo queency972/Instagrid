@@ -65,6 +65,9 @@
                                                         <rect key="frame" x="141" y="0.0" width="131" height="131"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="ButtonImportPhoto1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fv1-02-Lpz"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -75,6 +78,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="131" height="131"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="ButtonImportPhoto1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kxl-Mw-eG7"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4a-ha-rMB">
                                                         <rect key="frame" x="141" y="0.0" width="131" height="131"/>
@@ -82,6 +88,9 @@
                                                         <state key="normal" image="Plus">
                                                             <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="ButtonImportPhoto1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EKW-tQ-R8C"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -103,7 +112,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="MZf-hd-95W">
                                 <rect key="frame" x="51.666666666666657" y="688" width="272" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNA-7O-Uon" userLabel="Layout 1">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNA-7O-Uon" userLabel="Layout 1">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="Gbs-Me-0lD"/>
@@ -112,10 +121,10 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="Layout 1"/>
                                         <connections>
-                                            <action selector="layout1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x1k-2m-DyB"/>
+                                            <action selector="changeLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pUe-ed-UPo"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubj-nX-ZVP" userLabel="Layout 2">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubj-nX-ZVP" userLabel="Layout 2">
                                         <rect key="frame" x="96" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="H1I-QT-sev"/>
@@ -124,10 +133,10 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="Layout 2"/>
                                         <connections>
-                                            <action selector="layout2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HWn-ed-EQw"/>
+                                            <action selector="changeLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BvJ-jO-CB6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYI-8f-rlM" userLabel="Layout 3">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYI-8f-rlM" userLabel="Layout 3">
                                         <rect key="frame" x="192" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="Zbt-uD-YGS"/>
@@ -135,7 +144,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="Layout 3"/>
                                         <connections>
-                                            <action selector="layout3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lp9-4i-FBi"/>
+                                            <action selector="changeLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a1I-la-Ctd"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -172,9 +181,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="up" id="fqU-sJ-M6F">
+                <swipeGestureRecognizer delaysTouchesBegan="YES" direction="up" id="fqU-sJ-M6F">
                     <connections>
-                        <action selector="swipeSquareAction:" destination="BYZ-38-t0r" id="zwU-Z9-x1R"/>
+                        <action selector="swipeSquareActionV2:" destination="BYZ-38-t0r" id="7dv-wR-zyw"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
