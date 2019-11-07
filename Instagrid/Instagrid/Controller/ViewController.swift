@@ -21,6 +21,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var viewLayout2: UIButton!
     @IBOutlet weak var viewLayout3: UIButton!
     var currentButton: UIButton?
+    var mySelectedPicture = [UIButton]()
 
     @IBAction func changeLayout(_ sender: UIButton) {
         switch sender.tag {
@@ -50,7 +51,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     func sharePhoto() {
-        let activityController =  UIActivityViewController(activityItems: [buttonImport1!.image(for: .normal)!], applicationActivities: nil)
+        let activityController = UIActivityViewController(activityItems: [buttonImport1.image(for: .normal)!], applicationActivities: nil)
         activityController.completionWithItemsHandler = {
             (activity, success, items, error) in
             if (!success) {
