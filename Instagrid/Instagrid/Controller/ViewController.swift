@@ -21,7 +21,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var viewLayout2: UIButton!
     @IBOutlet weak var viewLayout3: UIButton!
     var currentButton: UIButton?
-    var mySelectedPicture = [UIButton]()
 
     @IBAction func changeLayout(_ sender: UIButton) {
         switch sender.tag {
