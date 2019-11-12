@@ -15,6 +15,7 @@
 		E9DFA37C23566DDA00859A5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DFA37A23566DDA00859A5D /* LaunchScreen.storyboard */; };
 		E9DFA3862356775E00859A5D /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9DFA3852356775E00859A5D /* Delm-Medium.otf */; };
 		E9DFA3882356776C00859A5D /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9DFA3872356776B00859A5D /* ThirstySoftRegular.otf */; };
+		E9EF82C7237A2F0E000971EF /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF82C6237A2F0E000971EF /* UIView+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E9DFA37D23566DDA00859A5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9DFA3852356775E00859A5D /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		E9DFA3872356776B00859A5D /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
+		E9EF82C6237A2F0E000971EF /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				E9DFA37523566DD700859A5D /* Main.storyboard */,
+				E9EF82C6237A2F0E000971EF /* UIView+extension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			files = (
 				E9DFA37423566DD700859A5D /* ViewController.swift in Sources */,
 				E9DFA37023566DD700859A5D /* AppDelegate.swift in Sources */,
+				E9EF82C7237A2F0E000971EF /* UIView+extension.swift in Sources */,
 				E9DFA37223566DD700859A5D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

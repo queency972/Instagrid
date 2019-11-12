@@ -50,7 +50,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     func sharePhoto() {
-        let activityController = UIActivityViewController(activityItems: [buttonImport1.image(for: .normal)!], applicationActivities: nil)
+        let image = swipeSquare.asImage()
+        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         activityController.completionWithItemsHandler = {
             (activity, success, items, error) in
             if (!success) {

@@ -191,10 +191,10 @@
                                 <exclude reference="fay-WE-q1g"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="4Vx-pn-bPp"/>
                                 <exclude reference="2gn-j8-mlJ"/>
                                 <exclude reference="WAs-9q-Uwz"/>
                                 <exclude reference="XrX-We-PQd"/>
-                                <exclude reference="4Vx-pn-bPp"/>
                                 <exclude reference="MsE-Hk-NgD"/>
                                 <exclude reference="z52-LG-IsV"/>
                                 <exclude reference="F38-r0-2ge"/>
@@ -206,13 +206,13 @@
                                 <include reference="fay-WE-q1g"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="4Vx-pn-bPp"/>
                                 <exclude reference="THX-Rh-ETc"/>
                                 <include reference="2gn-j8-mlJ"/>
                                 <exclude reference="Ktu-Hf-1xe"/>
                                 <include reference="WAs-9q-Uwz"/>
                                 <include reference="XrX-We-PQd"/>
                                 <exclude reference="o25-i3-VCp"/>
-                                <include reference="4Vx-pn-bPp"/>
                                 <exclude reference="CXm-1F-0bW"/>
                                 <include reference="MsE-Hk-NgD"/>
                                 <exclude reference="QF9-vU-hYG"/>
@@ -241,7 +241,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1087.5" y="-213.04347826086959"/>
+            <point key="canvasLocation" x="817" y="-59"/>
         </scene>
     </scenes>
     <resources>
