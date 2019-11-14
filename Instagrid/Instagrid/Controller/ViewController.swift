@@ -40,13 +40,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         addNewPicture()
     }
 
-    @IBAction func swipeSquareActionV2(_ sender: UISwipeGestureRecognizer) {
-        let translationUP = CGAffineTransform(translationX: 0, y: -180)
-        UIView.animate(withDuration: 0.5) {
-            self.swipeSquare.transform = translationUP
-            self.swipeSquare.alpha = 0
-            self.sharePhoto()
+    @IBAction func swipeSquareActionV3(_ sender: UISwipeGestureRecognizer) {
+        if UIDevice.current.orientation.isPortrait {
+            if sender.direction == .up {
+                UIView.animate(withDuration: 0.5) {
+                    self.swipeSquare.transform = CGAffineTransform(translationX: 0, y: -300)
+                    self.swipeSquare.alpha = 0
+                    self.sharePhoto()
+                }
+            }
         }
+        else if UIDevice.current.orientation.isLandscape {
+            if sender.direction == .left {
+                UIView.animate(withDuration: 0.5) {
+                    self.swipeSquare.transform = CGAffineTransform(translationX: -300, y: 0)
+                    self.swipeSquare.alpha = 0
+                    self.sharePhoto()
+                }
+            }
+        }
+
     }
 
     func sharePhoto() {
@@ -120,5 +133,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         // code
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isPortrait {
+            let upSwipeGesture = UISwipeGestureRecognizer(target: self, action:#selector(swipeSquareActionV3(_:)))
+            upSwipeGesture.direction = .up
+            self.view.addGestureRecognizer(upSwipeGesture)
+            print("Portrait Mode !")
+        }
+        else if UIDevice.current.orientation.isLandscape {
+            let leftSwipeGesture = UISwipeGestureRecognizer(target: self, action:#selector(swipeSquareActionV3(_:)))
+            leftSwipeGesture.direction = .left
+            self.view.addGestureRecognizer(leftSwipeGesture)
+            print("LandScape Mode !")
+        }
     }
 }
