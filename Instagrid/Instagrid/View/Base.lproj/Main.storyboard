@@ -235,13 +235,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="up" id="fqU-sJ-M6F">
+                <swipeGestureRecognizer enabled="NO" direction="up" id="fqU-sJ-M6F">
                     <connections>
                         <action selector="swipeSquareActionV3:" destination="BYZ-38-t0r" id="3eM-2d-jp1"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="385" y="5"/>
+            <point key="canvasLocation" x="-441" y="-51"/>
         </scene>
     </scenes>
     <resources>

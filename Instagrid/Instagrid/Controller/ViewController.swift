@@ -22,6 +22,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var viewLayout3: UIButton!
     var currentButton: UIButton?
 
+    var isLandscape: Bool {
+        return UIDevice.current.orientation.isValidInterfaceOrientation
+            ? UIDevice.current.orientation.isLandscape
+            : UIApplication.shared.statusBarOrientation.isLandscape
+    }
+
     @IBAction func changeLayout(_ sender: UIButton) {
         switch sender.tag {
         case 1:
@@ -131,17 +137,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // code
+        viewLayout3.setImage(UIImage(named: "Selected"), for: .normal)
+        setSwipe()
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        if UIDevice.current.orientation.isPortrait {
+        setSwipe()
+    }
+
+    func setSwipe() {
+        if !isLandscape {
             let upSwipeGesture = UISwipeGestureRecognizer(target: self, action:#selector(swipeSquareActionV3(_:)))
             upSwipeGesture.direction = .up
             self.view.addGestureRecognizer(upSwipeGesture)
             print("Portrait Mode !")
         }
-        else if UIDevice.current.orientation.isLandscape {
+        else  {
             let leftSwipeGesture = UISwipeGestureRecognizer(target: self, action:#selector(swipeSquareActionV3(_:)))
             leftSwipeGesture.direction = .left
             self.view.addGestureRecognizer(leftSwipeGesture)
