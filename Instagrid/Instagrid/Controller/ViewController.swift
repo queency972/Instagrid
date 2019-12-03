@@ -22,11 +22,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var viewLayout3: UIButton!
     var currentButton: UIButton?
 
+    // var allowing to know if the device is Landscape mode.
     var isLandscape: Bool {
         return UIDevice.current.orientation.isValidInterfaceOrientation
             ? UIDevice.current.orientation.isLandscape
             : UIApplication.shared.statusBarOrientation.isLandscape
     }
+
 
     @IBAction func changeLayout(_ sender: UIButton) {
         switch sender.tag {
@@ -41,11 +43,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
 
+    // var allowing to have the sender (Image)
     @IBAction func ButtonImportPhoto1(_ sender: UIButton) {
         currentButton = sender
         addNewPicture()
     }
 
+    // Allowing to make a swipe Up or Left.
     @IBAction func swipeSquareActionV3(_ sender: UISwipeGestureRecognizer) {
         if UIDevice.current.orientation.isPortrait {
             if sender.direction == .up {
@@ -67,6 +71,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
 
+    // Allowing to share the picture with closure
     func sharePhoto() {
         let image = swipeSquare.asImage()
         let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
@@ -84,6 +89,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(activityController, animated: true, completion: nil)
     }
 
+    // Allowing add a picture.
     func addNewPicture() {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let myPickerController = UIImagePickerController()
@@ -94,6 +100,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
 
+    // func allowing to define the picture.
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             if let buttonSelected = currentButton {
@@ -104,6 +111,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.dismiss(animated: true, completion: nil)
     }
 
+    // Switch on different Layout via parameters.
     func layoutChoice(choice: String) {
         switch choice {
         case "Layout1":
@@ -135,16 +143,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
 
+    // At loading, setup viewLayout3 by default and run func SetSwipe
     override func viewDidLoad() {
         super.viewDidLoad()
         viewLayout3.setImage(UIImage(named: "Selected"), for: .normal)
         setSwipe()
     }
 
+    // Check in live what is the device's position
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         setSwipe()
     }
 
+    // Setup swipe (Up or Left)
     func setSwipe() {
         if !isLandscape {
             let upSwipeGesture = UISwipeGestureRecognizer(target: self, action:#selector(swipeSquareActionV3(_:)))
