@@ -20,3 +20,12 @@ extension UIView {
         return image
     }
 }
+
+extension UIImagePickerController {
+    open override var shouldAutorotate: Bool {
+        return true
+    }
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
+    }
+}

@@ -9,7 +9,7 @@
 import Photos
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController  {
 
 
     @IBOutlet weak var swipeSquare: UIView!
@@ -96,19 +96,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             myPickerController.delegate = self
             myPickerController.sourceType = .photoLibrary
             myPickerController.allowsEditing = false
-            self.present(myPickerController, animated: true)
+            present(myPickerController, animated: true)
         }
-    }
-
-    // func allowing to define the picture.
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            if let buttonSelected = currentButton {
-                buttonSelected.setImage(image, for: .normal)
-            }
-        }
-        
-        self.dismiss(animated: true, completion: nil)
     }
 
     // Switch on different Layout via parameters.
@@ -170,4 +159,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             print("LandScape Mode !")
         }
     }
+}
+
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    // func allowing to define the picture.
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            if let buttonSelected = currentButton {
+                buttonSelected.setImage(image, for: .normal)
+            }
+        }
+
+        self.dismiss(animated: true, completion: nil)
+    }
+
 }
